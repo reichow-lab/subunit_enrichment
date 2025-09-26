@@ -38,3 +38,17 @@ Optional: rename the the enriched_values.csv with # of enriched subunits (e.g. 1
 cat 10gated_enriched_values.csv 11gated_enriched_values.csv 12gated_enriched_values.csv > 10-12gated_enriched_values.csv
 ```
 
+
+########################################################################
+
+
+Using the Metadata_Filter.py script
+
+Step # 3: Load the the script
+
+```
+python3 Metadata_Filter.py
+```
+Enter in the consensus refinement .cs file
+Enter in the enriched_values.csv file
+
