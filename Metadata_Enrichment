@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# 1. Ask for the CSV file to analyze
+read -e -p "Enter a .csv file of interest: " csv_file
+
+# 2. Check if the file exists
+if [ ! -f "$csv_file" ]; then
+    echo "File does not exist. Exiting."
+    exit 1
+fi
+
+#3 Extract the specified column from the CSV and calculate frequency (silent processing)
+awk -F',' -v col="3" 'NR>1 { print $col }' "$csv_file" | sort | uniq -c > /dev/null
+
+#4 Determine the frequency of column 1 from the analysis, sort it, and print it
+echo -e "\nSubunit Frequency Results:"
+awk -F',' -v col="3" 'NR>1 { print $col }' "$csv_file" | sort | uniq -c | awk '{ print $1 }' | sort | uniq -c
+
+# 3. Display frequency of values in column 3
+#echo -e "\nSubunit Frequency Results:"
+#awk -F',' 'NR>1 { count[$3]++ } END { for (val in count) print count[val], val }' "$csv_file" | sort -nr
+
+# 4. Ask the user for the frequency to enrich
+read -p "Enter the frequency to enrich for: " target_freq
+
+# 5. Collect values from column 3 with the matching frequency
+match_values=$(awk -F',' -v freq="$target_freq" '
+    NR > 1 { count[$3]++ }
+    END {
+        for (val in count)
+            if (count[val] == freq)
+                print val
+    }
+' "$csv_file")
+
+# 6. Check if any matches were found
+if [ -z "$match_values" ]; then
+    echo "No values found with frequency $target_freq. Exiting."
+    exit 1
+fi
+
+# 7. Write matching values into enriched_values.csv
+echo "$match_values" > enriched_values.csv
+echo "Enriched values saved in 'enriched_values.csv'."
