@@ -115,7 +115,7 @@ results:
     type: particle.pick_stats
 version: v4.4.1
 ```
-Step # 7: Change metadata file from the old .cs file to the enrich .cs file and the num_items (number of particles 12345 in this example)
+Step # 7: Change metadata file from the old .cs file to the enriched .cs file and the num_items (number of particles 12345 in this example)
 ```
 created: xxxx-xx-xx xx:xx:xx.xxxxxx
 group:
@@ -156,4 +156,5 @@ Step # 8: Save and quit
 ```
 
 Step # 9: Import the 10gated_filtered_particles.csg into CryoSPARC using the import result group job type and make sure the number of particles imported matches the expected number of partilces.
+
 Provided the consensus map still has unbinned extracted partilces attached to it, then the particles are ready for 3D refinement. 
