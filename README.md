@@ -157,4 +157,4 @@ Step # 8: Save and quit
 
 Step # 9: Import the 10gated_filtered_particles.csg into CryoSPARC using the import result group job type and make sure the number of particles imported matches the expected number of partilces.
 
-Provided the consensus map still has unbinned extracted partilces attached to it, then the particles are ready for 3D refinement. 
+Step # 10: Provided the consensus map still has extracted partilces attached to it, then the particles are ready for 3D refinement. 
