@@ -11,6 +11,7 @@ The intended input for these scripts is metadata that was extracted from a .cs f
 ########################################################################
 
 
+
 Step # 1: Generate/acquire the necessary files to begin:
 
 1) Extracted metadata .csv from the subunit state of interest
@@ -20,7 +21,9 @@ Step # 1: Generate/acquire the necessary files to begin:
    - This refinement must contain all particles that eventually went into the symmetry expansion/signal subtraction/3D classification workflow
 
 
+
 ########################################################################
+
 
 
 Using the Metadata_Enrichment.sh script
@@ -31,9 +34,9 @@ Step # 2: Load the script
 ```
 Enter the path to the metadata .csv file of interest
 
-After seeing the distribution, input the number of subunits that is wanted for enrichment
-
 IMPORTANT: Make note of the number of particles of the selected criteria it will be needed later in this workflow
+
+After seeing the distribution, input the number of subunits that is wanted for enrichment
 
 This will create a new "enriched_values" .csv file containing particle IDs that fit the selected criteria that is used with the Metadata_filter/py script
 
@@ -43,7 +46,9 @@ Typical use case is to generate several enriched_values.csv files of different a
 The end goal being several particles.cs files with varying amounts of the desired state in the gap junction
 
 
+
 ########################################################################
+
 
 
 Using the Metadata_Filter.py script
@@ -63,7 +68,9 @@ Step #4: Rename the filtered_particles.cs file with an unique identifier
 mv fitlered_particles.cs 10gated_particles.cs
 ```
 
+
 ########################################################################
+
 
 Importing the filtered_particles.cs file into CryoSPARC
 
@@ -115,6 +122,8 @@ results:
     type: particle.pick_stats
 version: v4.4.1
 ```
+
+
 Step # 7: Change metadata file from the old .cs file to the enriched .cs file and the num_items (number of particles 12345 in this example)
 ```
 created: xxxx-xx-xx xx:xx:xx.xxxxxx
@@ -150,10 +159,13 @@ results:
     type: particle.pick_stats
 version: v4.4.1
 ```
+
 Step # 8: Save and quit
 ```
 :wq
 ```
+
+
 
 Step # 9: Import the 10gated_filtered_particles.csg into CryoSPARC using the import result group job type and make sure the number of particles imported matches the expected number of partilces.
 
