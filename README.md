@@ -15,10 +15,10 @@ The intended input for these scripts is metadata that was extracted from a .cs f
 Step # 1: Generate/acquire the necessary files to begin:
 
 1) Extracted metadata .csv from the subunit state of interest
-   - Start by following [Steps #1 - 7 in the subunit_analysis repository](https://github.com/reichow-lab/subunit_analysis/blob/main/README.md) to generate the required metadata .csv files
+- Start by following [Steps #1 - 7 in the subunit_analysis repository](https://github.com/reichow-lab/subunit_analysis/blob/main/README.md) to generate the required metadata .csv files
 
 2) Exported particles_exported.cs file from an unbinned consensus refinement
-   - This refinement must contain all particles that eventually went into the symmetry expansion/signal subtraction/3D classification workflow
+- This refinement must contain all particles that eventually went into the symmetry expansion/signal subtraction/3D classification workflow
 
 
 
@@ -34,9 +34,9 @@ Step # 2: Load the script
 ```
  - Enter the path to the metadata .csv file of interest
 
-IMPORTANT: Make note of the number of particles of the selected criteria it will be needed later in this workflow
-
  - After seeing the distribution, input the number of subunits that is wanted for enrichment
+
+IMPORTANT: Make note of the number of particles of the selected criteria it will be needed later in this workflow
 
  - This will create a new "enriched_values" .csv file containing particle IDs that fit the selected criteria that is used with the Metadata_filter/py script
 
